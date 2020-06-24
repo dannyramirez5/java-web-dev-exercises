@@ -8,7 +8,7 @@ public class HashMapGradebook {
 
     public static void main(String[] args) {
 
-        HashMap<String, Double> students = new HashMap<>();
+        HashMap<Integer, String> students = new HashMap<>();
         Scanner input = new Scanner(System.in);
         String newStudent;
 
@@ -21,9 +21,9 @@ public class HashMapGradebook {
             newStudent = input.nextLine();
 
             if (!newStudent.equals("")) {
-                System.out.print("Grade: ");
-                Double newGrade = input.nextDouble();
-                students.put(newStudent, newGrade);
+                System.out.print("ID: ");
+                Integer id = input.nextInt();
+                students.put(id, newStudent);
 
                 // Read in the newline before looping back
                 input.nextLine();
@@ -35,9 +35,9 @@ public class HashMapGradebook {
         System.out.println("\nClass roster:");
         double sum = 0.0;
 
-        for (Map.Entry<String, Double> student : students.entrySet()) {
+        for (Map.Entry<Integer, String> student : students.entrySet()) {
             System.out.println(student.getKey() + " (" + student.getValue() + ")");
-            sum += student.getValue();
+            sum += student.getKey();
         }
 
         double avg = sum / students.size();
